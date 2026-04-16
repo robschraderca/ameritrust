@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSCR Investment Property Loans | Ameritrust Mortgage</title>
+<style>
+  :root {
+    --red: #BE0B31;
+    --navy: #001F60;
+    --silver: #AEB1BD;
+    --light-gray: #EBECEF;
+    --off-white: #F9F9F9;
+    --white: #FFFFFF;
+    --black: #000000;
+    --accent-steel: #758C9C;
+    --accent-purple: #8D90AE;
+    --accent-green: #8DAE9B;
+    --accent-rose: #C0737B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--navy); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  .nav { background: var(--white); padding: 10px 0; border-bottom: 3px solid var(--red); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,31,96,0.06); }
+  .nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+  .nav-logo img { height: 36px; width: auto; }
+  .nav-nmls { font-size: 10px; color: var(--silver); }
+  .nav-phone { color: var(--navy); text-decoration: none; font-size: 14px; font-weight: 700; }
+  .nav-phone:hover { color: var(--red); }
+
+  /* HERO */
+  .hero { background: var(--navy); padding: 56px 24px 64px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(190,11,49,0.15) 0%, transparent 70%); border-radius: 50%; }
+  .hero-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; position: relative; z-index: 1; }
+  .hero-left { display: flex; flex-direction: column; }
+  .hero-badge { display: inline-block; background: rgba(190,11,49,0.2); color: var(--white); padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 16px; border: 1px solid rgba(190,11,49,0.3); }
+  .hero h1 { font-size: 38px; font-weight: 900; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
+  .hero h1 em { font-style: normal; color: var(--red); }
+  .hero p { font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 24px; max-width: 480px; }
+  .hero-bullets { list-style: none; margin-bottom: 0; }
+  .hero-bullets li { color: var(--white); font-size: 17px; font-weight: 700; padding: 8px 0; display: flex; align-items: center; gap: 12px; }
+  .hero-bullets li::before { content: '\2713'; display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; background: rgba(190,11,49,0.25); color: var(--red); border-radius: 50%; font-weight: 800; font-size: 11px; flex-shrink: 0; }
+
+  /* HERO STEPS */
+  .hero-steps { background: var(--white); border-radius: 14px; padding: 32px 28px; margin-top: 28px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); flex: 1; align-content: center; }
+  .hero-step { text-align: center; }
+  .hero-step-num { width: 54px; height: 54px; background: var(--navy); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 22px; margin: 0 auto 10px; border: 3px solid var(--black); }
+  .hero-step-title { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+  .hero-step-desc { font-size: 13px; color: var(--accent-steel); margin-top: 4px; line-height: 1.4; }
+
+  /* HERO FORM */
+  .hero-form { background: var(--white); border-radius: 14px; padding: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+  .hero-form h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .hero-form .form-sub { font-size: 13px; color: var(--accent-steel); margin-bottom: 20px; line-height: 1.5; }
+  .form-group { margin-bottom: 12px; }
+  .form-group label { display: block; font-size: 11px; font-weight: 700; color: var(--navy); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .form-group input, .form-group select { width: 100%; padding: 10px 14px; border: 2px solid var(--light-gray); border-radius: 8px; font-size: 14px; font-family: inherit; color: var(--navy); transition: border-color 0.2s; background: var(--white); -webkit-appearance: none; }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--navy); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .submit-btn { width: 100%; background: var(--red); color: var(--white); padding: 14px; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: inherit; margin-top: 8px; }
+  .submit-btn:hover { background: var(--navy); }
+  .form-trust { font-size: 11px; color: var(--silver); text-align: center; margin-top: 10px; }
+
+  /* LO STRIP under form */
+  .lo-strip { display: flex; align-items: center; gap: 12px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--light-gray); }
+  .lo-strip img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .lo-strip-info { flex: 1; }
+  .lo-strip-name { font-size: 13px; font-weight: 700; color: var(--navy); }
+  .lo-strip-title { font-size: 11px; color: var(--accent-steel); }
+  .lo-strip-logo img { width: auto; height: 28px; border-radius: 0; }
+
+  /* SECTIONS */
+  section { padding: 72px 24px; }
+  .container { max-width: 1140px; margin: 0 auto; }
+  .section-label { font-size: 12px; font-weight: 700; color: var(--red); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  .section-title { font-size: 36px; font-weight: 900; color: var(--navy); margin-bottom: 12px; line-height: 1.2; }
+  .section-subtitle { font-size: 18px; color: var(--accent-steel); max-width: 620px; line-height: 1.7; }
+
+  /* HOW IT WORKS */
+  .how-it-works { background: var(--off-white); }
+  .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+  .step { background: var(--white); border-radius: 14px; padding: 28px 20px; text-align: center; border: 1px solid var(--light-gray); transition: all 0.3s; }
+  .step:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,31,96,0.07); border-color: var(--red); }
+  .step-number { width: 42px; height: 42px; background: var(--navy); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; margin: 0 auto 16px; }
+  .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .step p { font-size: 13px; color: var(--accent-steel); line-height: 1.6; }
+
+  /* BENEFITS */
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+  .benefit { padding: 28px; border-radius: 14px; border: 1px solid var(--light-gray); background: var(--white); transition: all 0.3s; border-left: 4px solid var(--red); }
+  .benefit:hover { border-color: var(--red); box-shadow: 0 8px 24px rgba(0,31,96,0.05); border-left: 4px solid var(--red); }
+  .benefit h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+  .benefit p { font-size: 15px; color: var(--accent-steel); line-height: 1.7; }
+
+  /* LO CARD full */
+  .lo-section { background: var(--off-white); }
+  .lo-card { background: var(--white); border: 1px solid var(--light-gray); border-radius: 14px; padding: 24px 28px; border-top: 3px solid var(--red); display: flex; gap: 20px; align-items: flex-start; max-width: 680px; margin: 0 auto; }
+  .lo-photo { width: 100px; height: 100px; flex-shrink: 0; overflow: hidden; }
+  .lo-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .lo-info { flex: 1; }
+  .lo-info h4 { font-size: 20px; font-weight: 700; margin-bottom: 2px; color: var(--black); }
+  .lo-info .lo-title { font-size: 13px; color: var(--navy); font-weight: 700; margin-bottom: 12px; }
+  .lo-info .lo-address { font-size: 12px; color: var(--accent-steel); line-height: 1.5; margin-bottom: 12px; }
+  .lo-info a { color: var(--black); text-decoration: none; font-size: 14px; display: block; margin-bottom: 4px; }
+  .lo-info a:hover { color: var(--red); }
+  .lo-card-right { text-align: center; flex-shrink: 0; }
+  .lo-card-right img { width: 120px; height: auto; display: block; margin: 0 auto 4px; }
+  .lo-card-right .lo-nmls { font-size: 10px; color: var(--silver); letter-spacing: 0.5px; }
+
+  /* FOOTER */
+  .footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 40px 24px 28px; text-align: center; }
+  .footer-logo { margin-bottom: 6px; }
+  .footer-logo img { height: 50px; width: auto; }
+  .footer-nmls { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; color: rgba(255,255,255,0.25); }
+  .footer-contact { display: flex; justify-content: center; gap: 28px; margin-bottom: 20px; flex-wrap: wrap; }
+  .footer-contact a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; }
+  .footer-contact a:hover { color: var(--white); }
+  .footer-divider { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px; margin-top: 20px; }
+  .footer-legal { font-size: 10px; line-height: 1.7; color: rgba(255,255,255,0.25); max-width: 760px; margin: 0 auto; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 32px; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .lo-card { flex-direction: column; align-items: center; text-align: center; }
+    .lo-card-right { margin-top: 10px; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 36px 20px 44px; }
+    .hero h1 { font-size: 26px; }
+    .hero-steps { padding: 20px 16px; gap: 16px; }
+    .hero-step-num { width: 38px; height: 38px; font-size: 16px; }
+    .hero-step-title { font-size: 12px; }
+    .hero-step-desc { font-size: 11px; }
+    .nav-phone { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="logo-horizontal.png" alt="Ameritrust Mortgage Corporation">
+      <span class="nav-nmls">NMLS 217229</span>
+    </a>
+    <a href="tel:7146243598" class="nav-phone">&#9742; 714-624-3598</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div>
+        <div class="hero-badge">DSCR Investment Property Loans</div>
+        <h1>Buy Rental Properties <em>Without Tax Returns or W-2s</em></h1>
+        <p>DSCR loans qualify based on your property's rental income &mdash; not your personal income. If the rent covers the payment, you're in the conversation.</p>
+        <ul class="hero-bullets">
+          <li>No W-2s, pay stubs, or tax returns</li>
+          <li>20% down &mdash; 1&ndash;4 unit investment properties</li>
+          <li>Pre-qualify in under 5 minutes</li>
+          <li>Purchase or cash-out refinance</li>
+        </ul>
+      </div>
+      <div class="hero-steps">
+        <div class="hero-step"><div class="hero-step-num">1</div><div class="hero-step-title">Send a Property</div><div class="hero-step-desc">Zillow link, address, or price range</div></div>
+        <div class="hero-step"><div class="hero-step-num">2</div><div class="hero-step-title">We Run Numbers</div><div class="hero-step-desc">DSCR ratio, payment vs. rent</div></div>
+        <div class="hero-step"><div class="hero-step-num">3</div><div class="hero-step-title">Get Pre-Qualified</div><div class="hero-step-desc">No income docs needed</div></div>
+        <div class="hero-step"><div class="hero-step-num">4</div><div class="hero-step-title">Close &amp; Cash Flow</div><div class="hero-step-desc">Lock in the asset, build wealth</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="hero-form">
+        <h3>Run My Numbers</h3>
+        <p class="form-sub">7 quick details and Michael will send you a full DSCR breakdown &mdash; no obligation, no credit pull.</p>
+        <div class="form-row">
+          <div class="form-group"><label>Your Name</label><input type="text" placeholder="First and last name"></div>
+          <div class="form-group"><label>Phone</label><input type="tel" placeholder="(555) 123-4567"></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Purchase or Refinance?</label><select><option value="" disabled selected>Select one</option><option>Purchase</option><option>Rate &amp; Term Refinance</option><option>Cash-Out Refinance</option></select></div>
+          <div class="form-group"><label>Property Type</label><select><option value="" disabled selected>Select type</option><option>Single Family</option><option>Condo</option><option>2-Unit</option><option>3-Unit</option><option>4-Unit</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Property Value ($)</label><input type="text" placeholder="400,000"></div>
+          <div class="form-group"><label>Loan Amount ($)</label><input type="text" placeholder="320,000"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Monthly Rent ($)</label><input type="text" placeholder="2,800"></div>
+          <div class="form-group"><label>Credit Score (est.)</label><select><option value="" disabled selected>Select range</option><option>740+</option><option>720 &ndash; 739</option><option>700 &ndash; 719</option><option>680 &ndash; 699</option><option>660 &ndash; 679</option><option>Below 660</option></select></div>
+        </div>
+        <div class="form-group"><label>Property Zip Code or Address</label><input type="text" placeholder="Zip code, address, or Zillow link"></div>
+        <button class="submit-btn">Get My DSCR Quote &rarr;</button>
+        <div class="form-trust">No credit pull &bull; Same-day response &bull; Free analysis</div>
+        <div class="lo-strip">
+          <img src="michael-headshot.jpg" alt="Michael McDermott">
+          <div class="lo-strip-info">
+            <div class="lo-strip-name">Michael McDermott</div>
+            <div class="lo-strip-title">Loan Officer &bull; NMLS 1036304</div>
+          </div>
+          <div class="lo-strip-logo"><img src="logo-horizontal.png" alt="Ameritrust"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="benefits">
+  <div class="container">
+    <div class="section-label">Why DSCR Loans</div>
+    <div class="section-title">Built for Real Estate Investors</div>
+    <div class="section-subtitle">Traditional lenders look at your personal income. We look at the property.</div>
+    <div class="benefits-grid">
+      <div class="benefit"><h3>No Income Docs</h3><p>No W-2s, pay stubs, or tax returns. Perfect for self-employed investors, 1099 earners, and business owners.</p></div>
+      <div class="benefit"><h3>Property Qualifies Itself</h3><p>If the rental income covers the mortgage payment, you're in the conversation. Simple as that.</p></div>
+      <div class="benefit"><h3>20% Down to Start</h3><p>On a $400k property, that's $20k less out of pocket versus what most investors expect.</p></div>
+      <div class="benefit"><h3>Purchase or Refinance</h3><p>Buying new or refinancing existing &mdash; DSCR works for both, including cash-out.</p></div>
+      <div class="benefit"><h3>Fast Closings</h3><p>Less documentation means faster underwriting. Get to closing sooner than conventional.</p></div>
+      <div class="benefit"><h3>No DTI Restrictions</h3><p>Your debt-to-income ratio doesn't matter. Stop letting DTI kill deals that cash flow.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="lo-section">
+  <div class="container">
+    <div class="lo-card">
+      <div class="lo-photo">
+        <img src="michael-headshot.jpg" alt="Michael McDermott">
+      </div>
+      <div class="lo-info">
+        <h4>Michael McDermott</h4>
+        <div class="lo-title">Loan Officer &bull; NMLS 1036304</div>
+        <div class="lo-address">17341 Irvine Blvd., Suite 150<br>Tustin, CA 92780</div>
+        <a href="tel:7146243598">&#9742; 714-624-3598</a>
+        <a href="mailto:MichaelM@ameritrust-mortgage.com">&#9993; MichaelM@ameritrust-mortgage.com</a>
+      </div>
+      <div class="lo-card-right">
+        <img src="logo-main.png" alt="Ameritrust Mortgage Corporation">
+        <div class="lo-nmls">NMLS 217229</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo"><img src="logo-main-white.png" alt="Ameritrust Mortgage"></div>
+    <div class="footer-nmls">NMLS 217229</div>
+    <div class="footer-contact">
+      <a href="tel:7146243598">714-624-3598</a>
+      <a href="mailto:MichaelM@ameritrust-mortgage.com">MichaelM@ameritrust-mortgage.com</a>
+      <a href="#">17341 Irvine Blvd., Suite 150, Tustin, CA 92780</a>
+    </div>
+    <div class="footer-divider">
+      <p class="footer-legal">Equal Housing Lender. Ameritrust Mortgage Corporation NMLS 217229. This is not a commitment to lend. Programs, rates, terms, and conditions are subject to change without notice. All loans are subject to credit approval. Other restrictions and limitations may apply. Michael McDermott NMLS 1036304.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

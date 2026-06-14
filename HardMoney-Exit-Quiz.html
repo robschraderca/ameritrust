@@ -146,7 +146,7 @@
   .prods h2{font-size:clamp(26px,3.2vw,36px);font-weight:800;letter-spacing:-.02em;margin:10px 0 6px}
   .prods .lead{font-size:17px;color:var(--slate);max-width:600px;margin-bottom:46px}
   .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .pcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;transition:transform .25s ease,box-shadow .25s ease;overflow:hidden;transform-style:preserve-3d;will-change:transform}
+  .pcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;transition:transform .25s ease,box-shadow .25s ease;overflow:hidden;transform-style:preserve-3d;will-change:transform;text-decoration:none;color:inherit;display:block}
   .pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--red));transform:scaleX(0);transform-origin:left;transition:transform .35s}
   .pcard:hover{box-shadow:var(--shadow)}
   .pcard:hover::before{transform:scaleX(1)}
@@ -154,6 +154,7 @@
   .ptag{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--red)}
   .pcard h3{font-size:20px;font-weight:700;letter-spacing:-.01em;margin:6px 0 10px}
   .pcard p{font-size:14.5px;color:var(--slate);line-height:1.65}
+  .pmore{display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:var(--red)}
 
   .why{background:linear-gradient(160deg,#001a55,#06133f);color:#fff;padding:92px 0;position:relative;overflow:hidden}
   .why .mesh{opacity:.6}
@@ -235,11 +236,11 @@
     <div class="hero-left">
       <span class="hero-eyebrow"><span class="dot"></span>Hard Money Exit</span>
       <h1>Get out of your hard money loan <em>before the balloon hits</em></h1>
-      <p class="hero-sub">Answer a few quick questions and see which permanent loan gets you out. DSCR, bank statement, or P&amp;L, with no tax returns required.</p>
+      <p class="hero-sub">Answer a few quick questions and see which permanent loan gets you out. DSCR, Bank Statement, or P&amp;L, with no tax returns required.</p>
       <ul class="hero-list">
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6b85" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Refinance out of hard money or bridge debt</li>
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6b85" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Qualify on the property or your business income</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6b85" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>DSCR, bank statement, or P&amp;L options</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6b85" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>DSCR, Bank Statement, or P&amp;L options</li>
       </ul>
       <div class="hero-trust">
         <span class="chip">🔒 No credit pull</span>
@@ -385,7 +386,7 @@
     <p class="lead reveal">No guesswork and no credit pull, just a clear path out before your note comes due.</p>
     <div class="timeline">
       <div class="tstep reveal"><div class="tnode">1</div><h3>Answer a few questions</h3><p>About 60 seconds. Tell us the property and how you earn.</p></div>
-      <div class="tstep reveal"><div class="tnode">2</div><h3>See your best loan</h3><p>Instantly find out whether DSCR, bank statement, or P&amp;L fits.</p></div>
+      <div class="tstep reveal"><div class="tnode">2</div><h3>See your best loan</h3><p>Instantly find out whether DSCR, Bank Statement, or P&amp;L fits.</p></div>
       <div class="tstep reveal"><div class="tnode">3</div><h3>Michael maps your exit</h3><p>A real plan to refinance out before the balloon hits.</p></div>
     </div>
   </div>
@@ -397,9 +398,9 @@
     <h2 class="reveal">One of these gets you out of hard money</h2>
     <p class="lead reveal">The right exit depends on the property and how you earn. Here's the short version.</p>
     <div class="pgrid">
-      <div class="pcard reveal" data-tilt><div class="picon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="ptag">DSCR</div><h3>Qualify on the rent</h3><p>The property's rental income carries the loan, with no tax returns and no DTI. The usual exit for a rental.</p></div>
-      <div class="pcard reveal" data-tilt><div class="picon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="21" x2="21" y2="21"/><path d="M5 21V10M19 21V10M9 21V10M15 21V10"/><polygon points="12 2 21 8 3 8"/></svg></div><div class="ptag">Bank Statement</div><h3>Qualify on deposits</h3><p>12 to 24 months of bank deposits stand in for tax returns. Built for self-employed owners with write-offs.</p></div>
-      <div class="pcard reveal" data-tilt><div class="picon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="ptag">P&amp;L Only</div><h3>Qualify on your P&amp;L</h3><p>A CPA-prepared profit &amp; loss does the work. The lightest paperwork of the three.</p></div>
+      <a class="pcard reveal" data-tilt href="dscr.html"><div class="picon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="ptag">DSCR</div><h3>Qualify on the rent</h3><p>The property's rental income carries the loan, with no tax returns and no DTI. The usual exit for a rental.</p><span class="pmore">Read the one-pager &rarr;</span></a>
+      <a class="pcard reveal" data-tilt href="bank-statement.html"><div class="picon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="21" x2="21" y2="21"/><path d="M5 21V10M19 21V10M9 21V10M15 21V10"/><polygon points="12 2 21 8 3 8"/></svg></div><div class="ptag">Bank Statement</div><h3>Qualify on deposits</h3><p>12 to 24 months of bank deposits stand in for tax returns. Built for self-employed owners with write-offs.</p><span class="pmore">Read the one-pager &rarr;</span></a>
+      <a class="pcard reveal" data-tilt href="pnl.html"><div class="picon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="ptag">P&amp;L Only</div><h3>Qualify on your P&amp;L</h3><p>A CPA-prepared profit &amp; loss does the work. The lightest paperwork of the three.</p><span class="pmore">Read the one-pager &rarr;</span></a>
     </div>
   </div>
 </section>

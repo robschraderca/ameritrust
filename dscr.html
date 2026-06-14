@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSCR Loan | Ameritrust Mortgage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#BE0B31;--red-deep:#950826;--navy:#001F60;--ink:#0B1437;--slate:#5B6480;--line:#E7E9F1;--soft:#F5F7FB;--white:#fff;--green:#1f9d72;--shadow:0 18px 50px rgba(11,20,55,.10);--shadow-sm:0 6px 20px rgba(11,20,55,.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased}
+.container{max-width:980px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--red)}
+.center{text-align:center}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:980px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo img{height:28px;width:auto}
+.nav-nmls{font-size:10px;color:var(--slate);border-left:1px solid var(--line);padding-left:10px}
+.nav-phone{display:inline-flex;align-items:center;gap:7px;color:var(--navy);text-decoration:none;font-size:14px;font-weight:700;border:1.5px solid var(--line);padding:9px 16px;border-radius:999px;transition:all .2s}
+.nav-phone:hover{border-color:var(--red);color:var(--red)}
+.hero{position:relative;background:linear-gradient(160deg,#001a55,#001F60 45%,#06133f);overflow:hidden;padding:54px 0 58px;color:#fff}
+.mesh{position:absolute;inset:0;opacity:.85;background:radial-gradient(40% 50% at 18% 20%,rgba(190,11,49,.40),transparent 60%),radial-gradient(40% 45% at 85% 25%,rgba(46,99,222,.42),transparent 60%),radial-gradient(45% 50% at 75% 90%,rgba(190,11,49,.28),transparent 60%);filter:blur(24px);animation:mesh 18s ease-in-out infinite alternate}
+@keyframes mesh{0%{transform:scale(1)}100%{transform:scale(1.12) translate(-2%,2%)}}
+.hwrap{position:relative;z-index:2;max-width:980px;margin:0 auto;padding:0 24px}
+.back{display:inline-block;color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;font-weight:600;margin-bottom:18px}
+.back:hover{color:#fff}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;padding:6px 14px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-size:clamp(30px,4.4vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.06;margin-bottom:12px}
+.hero .tagline{font-size:20px;font-weight:600;color:#ff8ea1;margin-bottom:14px}
+.hero .intro{font-size:17px;color:rgba(255,255,255,.85);max-width:680px;margin-bottom:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--red),var(--red-deep));color:#fff;padding:14px 26px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px;box-shadow:0 12px 28px rgba(190,11,49,.4);transition:transform .2s}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:14px 24px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px;transition:all .2s}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.body{padding:60px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:36px}
+.block h2{font-size:21px;font-weight:800;letter-spacing:-.01em;margin-bottom:8px;color:var(--navy)}
+.block p{font-size:15.5px;color:var(--slate)}
+.section-h{font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--navy);margin:8px 0 20px}
+.checklist{list-style:none;display:grid;gap:10px;margin-top:6px}
+.checklist li{display:flex;align-items:flex-start;gap:11px;font-size:15.5px;color:var(--ink)}
+.checklist svg{flex-shrink:0;margin-top:3px}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+.bcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;border-top:3px solid var(--red)}
+.bcard h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.bcard p{font-size:13.5px;color:var(--slate);line-height:1.6}
+.specs{background:var(--soft);border-radius:18px;padding:30px;margin-top:8px}
+.specs h3{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:18px}
+.spec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 28px}
+.spec{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.spec .k{font-size:14px;color:var(--slate)}
+.spec .v{font-size:14px;font-weight:700;color:var(--navy);text-align:right}
+.disclaimer-sm{font-size:11.5px;color:var(--slate);margin-top:18px;line-height:1.6}
+.ctaband{background:linear-gradient(160deg,#001a55,#06133f);color:#fff;text-align:center;padding:64px 24px;position:relative;overflow:hidden}
+.ctaband .mesh{opacity:.55}
+.ctaband-in{position:relative;z-index:2;max-width:640px;margin:0 auto}
+.ctaband h2{font-size:28px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.ctaband p{font-size:17px;color:rgba(255,255,255,.85);margin-bottom:24px}
+.lo-sec{padding:64px 0;background:var(--white)}
+.lo-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow-sm);display:flex;gap:22px;align-items:center;max-width:680px;margin:0 auto;border-top:3px solid var(--red)}
+.lo-photo{width:90px;height:90px;border-radius:16px;overflow:hidden;flex-shrink:0}
+.lo-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.lo-info{flex:1;min-width:0}
+.lo-info h4{font-size:19px;font-weight:700}
+.lo-info .lo-title{font-size:13px;color:var(--navy);font-weight:700;margin:2px 0 8px}
+.lo-info a{color:var(--ink);text-decoration:none;font-size:13.5px;display:block;margin-bottom:3px}
+.lo-info a:hover{color:var(--red)}
+.lo-right{flex-shrink:0;text-align:center}
+.lo-right img{height:auto;max-height:22px;max-width:130px;width:auto;object-fit:contain;display:block;margin-bottom:4px}
+.lo-right .lo-nmls{font-size:10px;color:var(--slate)}
+.legal{font-size:11px;line-height:1.7;color:var(--slate);max-width:760px;margin:30px auto 0;text-align:center;padding-top:22px;border-top:1px solid var(--line)}
+@media(max-width:760px){.grid2{grid-template-columns:1fr;gap:24px}.benefits{grid-template-columns:1fr}.spec-grid{grid-template-columns:1fr}.lo-card{flex-direction:column;text-align:center}.lo-info a{display:inline-block;margin:3px 8px}.nav-nmls{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a href="HardMoney-Exit-Quiz.html" class="nav-logo"><img src="logo-horizontal.png" alt="Ameritrust Mortgage Corporation"><span class="nav-nmls">NMLS 217229</span></a>
+  <a href="tel:7146243598" class="nav-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 714-624-3598</a>
+</div></nav>
+
+<section class="hero"><div class="mesh"></div><div class="hwrap">
+  <a class="back" href="HardMoney-Exit-Quiz.html">&larr; Back to the quiz</a>
+  <span class="tag">Debt Service Coverage Ratio</span>
+  <h1>The DSCR Loan</h1>
+  <p class="tagline">Qualify on the rent, not your tax returns.</p>
+  <p class="intro">A DSCR loan qualifies on the property's rental income instead of your personal income. If the rent covers the payment, you are in the conversation. It is the most common way investors refinance a rental out of hard money.</p>
+  <div class="cta-row">
+    <a class="btn-primary" href="HardMoney-Exit-Quiz.html">Take the 60-second quiz &rarr;</a>
+    <a class="btn-ghost" href="tel:7146243598"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call Michael</a>
+  </div>
+</div></section>
+
+<section class="body"><div class="container">
+  <div class="grid2">
+    <div class="block"><h2>Who it's for</h2><p>Buy-and-hold landlords, BRRRR investors, and short-term rental owners who need to refinance a rental out of hard money or bridge debt, or buy the next one.</p></div>
+    <div class="block"><h2>How you qualify</h2><p>We compare the property's monthly rent to the loan payment, which is the DSCR ratio. No W-2s, no pay stubs, no tax returns, and no debt-to-income limit.</p></div>
+  </div>
+  <div class="block" style="margin-bottom:40px"><h2>What you'll need</h2><ul class="checklist"><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f9d72" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Lease or a market rent estimate</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f9d72" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Basic property details</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f9d72" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Government ID</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f9d72" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Bank statement to show reserves and down payment</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f9d72" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>No income documents</span></li></ul></div>
+  <h2 class="section-h center">Why investors use it</h2>
+  <div class="benefits"><div class="bcard"><h3>No income docs</h3><p>No W-2s, pay stubs, or tax returns. The property carries the loan.</p></div><div class="bcard"><h3>No loan-count cap</h3><p>Keep financing properties past the conventional limit.</p></div><div class="bcard"><h3>Cash out to grow</h3><p>Pull equity to fund your next deal and recycle capital.</p></div></div>
+  <div class="specs">
+    <h3>At a glance</h3>
+    <div class="spec-grid"><div class="spec"><span class="k">Qualifies on</span><span class="v">Property rental income</span></div><div class="spec"><span class="k">Minimum credit</span><span class="v">~620+ (program dependent)</span></div><div class="spec"><span class="k">Max LTV</span><span class="v">Up to ~80% purchase, ~75% cash-out</span></div><div class="spec"><span class="k">Minimum DSCR</span><span class="v">~1.0 (some programs allow below 1.0)</span></div><div class="spec"><span class="k">Property types</span><span class="v">1-4 units, condos, short-term rentals</span></div><div class="spec"><span class="k">Terms</span><span class="v">30-yr fixed and interest-only options</span></div></div>
+    <p class="disclaimer-sm">Figures shown are general program guidelines, not an offer or quote. They vary by lender program, credit profile, property, and market, and are subject to change. This is not a commitment to lend. All loans subject to credit approval.</p>
+  </div>
+</div></section>
+
+<section class="ctaband"><div class="mesh"></div><div class="ctaband-in">
+  <h2>Not sure this is the one?</h2>
+  <p>Answer a few quick questions and we'll point you to your best way out of hard money.</p>
+  <a class="btn-primary" href="HardMoney-Exit-Quiz.html">Find my best exit &rarr;</a>
+</div></section>
+
+<section class="lo-sec"><div class="container">
+  <div class="lo-card">
+    <div class="lo-photo"><img src="michael-headshot.jpg" alt="Michael McDermott"></div>
+    <div class="lo-info">
+      <h4>Michael McDermott</h4>
+      <div class="lo-title">Loan Officer &bull; NMLS 1036304</div>
+      <a href="tel:7146243598">&#9742; 714-624-3598</a>
+      <a href="mailto:MichaelM@ameritrust-mortgage.com">&#9993; MichaelM@ameritrust-mortgage.com</a>
+    </div>
+    <div class="lo-right"><img src="logo-horizontal.png" alt="Ameritrust Mortgage Corporation"><div class="lo-nmls">NMLS 217229</div></div>
+  </div>
+  <p class="legal">Equal Housing Lender. Ameritrust Mortgage Corporation NMLS 217229. This is not a commitment to lend. Programs, rates, terms, and conditions are subject to change without notice. All loans are subject to credit approval. Other restrictions and limitations may apply. Michael McDermott NMLS 1036304.</p>
+</div></section>
+</body>
+</html>

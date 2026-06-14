@@ -95,8 +95,8 @@
 
   .field{margin-bottom:11px}
   .field label{display:block;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--navy);margin-bottom:5px}
-  .field input{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:16px;font-family:inherit;color:var(--ink);background:#fff;transition:all .18s;min-height:48px}
-  .field input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 4px rgba(0,31,96,.08)}
+  .field input,.field select{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:16px;font-family:inherit;color:var(--ink);background:#fff;transition:all .18s;min-height:48px;-webkit-appearance:none;appearance:none}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 4px rgba(0,31,96,.08)}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .nav-btns{display:flex;gap:10px;margin-top:18px}
   .btn-back,.btn-next{padding:14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;border:1.5px solid var(--line);background:#fff;color:var(--navy);min-height:52px;transition:transform .16s,box-shadow .16s,border-color .16s}
@@ -258,8 +258,8 @@
         <div class="card-head"><span class="card-pill">Free • 60 seconds</span></div>
         <h3>Which loan fits your exit?</h3>
         <p class="card-sub">A few quick questions and we'll point you to your best way out.</p>
-        <div class="pips"><div class="pip fill"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
-        <div class="step-meta">Question <b id="cur">1</b> of 4</div>
+        <div class="pips"><div class="pip fill"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="step-meta">Question <b id="cur">1</b> of 5</div>
 
         <form id="wiz" onsubmit="return false;">
           <!-- 1 GOAL -->
@@ -337,8 +337,27 @@
             <div class="nav-btns"><button type="button" class="btn-back" data-go="3">← Back</button></div>
           </div>
 
-          <!-- 5 RESULT -->
+          <!-- 5 PROPERTY DETAILS -->
           <div class="panel" data-step="5" data-prog="4">
+            <div class="q">Tell us about the property</div>
+            <div class="field"><label>Property type</label><select name="property_type"><option value="" disabled selected>Select</option><option>Single Family</option><option>Condo</option><option>2-Unit (Duplex)</option><option>3-Unit (Triplex)</option><option>4-Unit (Fourplex)</option><option>Short-term rental</option></select></div>
+            <div class="row">
+              <div class="field"><label>Property value</label><input type="text" name="property_value" inputmode="decimal" data-money placeholder="$400,000"></div>
+              <div class="field"><label>Loan amount needed</label><input type="text" name="loan_amount" inputmode="decimal" data-money placeholder="$320,000"></div>
+            </div>
+            <div class="row">
+              <div class="field"><label>Monthly rent</label><input type="text" name="rent" inputmode="decimal" data-money placeholder="$2,800"></div>
+              <div class="field"><label>Credit score (est.)</label><select name="credit"><option value="" disabled selected>Select</option><option>740+</option><option>680 to 739</option><option>Under 680</option><option>Not sure</option></select></div>
+            </div>
+            <div class="wiz-hint" style="font-size:12px;color:var(--slate);margin-top:6px">A best guess is fine. Michael confirms the real numbers on the call.</div>
+            <div class="nav-btns">
+              <button type="button" class="btn-back" id="pback" data-go="3">&larr; Back</button>
+              <button type="button" class="btn-next" data-go="6">Continue &rarr;</button>
+            </div>
+          </div>
+
+          <!-- 6 RESULT -->
+          <div class="panel" data-step="6" data-prog="5">
             <span class="result-badge" id="rbadge">Your match</span>
             <div class="result-head" id="rhead">Your likely best exit</div>
             <p class="result-why" id="rwhy"></p>
@@ -351,14 +370,14 @@
             <div class="field"><label>When does your hard money loan mature? (optional)</label><input type="text" name="maturity" placeholder="e.g. 90 days, or a date"></div>
             <div class="field"><label>Property address or Zillow link (optional)</label><input type="text" name="address" placeholder="Paste address or Zillow link"></div>
             <div class="nav-btns">
-              <button type="button" class="btn-back" id="rback">← Back</button>
+              <button type="button" class="btn-back" id="rback" data-go="5">← Back</button>
               <button type="submit" class="btn-next" data-magnet>Get My Exit Plan →</button>
             </div>
             <div class="trust-line">No credit pull • Same-day response • Free analysis</div>
           </div>
 
-          <!-- 6 THANKS -->
-          <div class="panel" data-step="6" data-prog="4">
+          <!-- 7 THANKS -->
+          <div class="panel" data-step="7" data-prog="5">
             <div class="thanks">
               <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
               <h3>Got it, thanks!</h3>
@@ -473,7 +492,6 @@
     document.getElementById('rwhy').innerHTML=p.why;
     document.getElementById('tprod').textContent=p.name;
     form.dataset.result=p.name;
-    document.getElementById('rback').setAttribute('data-go', q==='self'?'4':'3');
   }
 
   function showStep(n){
@@ -486,7 +504,8 @@
     var prog=panel?+panel.dataset.prog:n;
     pips.forEach(function(pp,i){pp.classList.toggle('fill',i<prog);});
     cur.textContent=prog;
-    if(n===5)burst();
+    if(n===5){var pb=document.getElementById('pback');if(pb)pb.setAttribute('data-go',val('qualify')==='self'?'4':'3');}
+    if(n===6){computeResult();burst();}
     if(window.innerWidth<980)document.getElementById('card').scrollIntoView({behavior:'smooth',block:'start'});
   }
 
@@ -495,11 +514,16 @@
     opt.classList.add('selected');
     var input=opt.querySelector('input');if(input)input.checked=true;
     var next=+opt.dataset.next;
-    setTimeout(function(){if(next===5)computeResult();showStep(next);},220);
+    setTimeout(function(){showStep(next);},220);
   }
 
   form.querySelectorAll('.opt').forEach(function(opt){opt.addEventListener('click',function(){pick(opt);});});
-  form.querySelectorAll('.btn-back').forEach(function(b){b.addEventListener('click',function(){showStep(+b.dataset.go);});});
+  form.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){showStep(+b.dataset.go);});});
+  // Dollar formatting
+  form.querySelectorAll('[data-money]').forEach(function(inp){
+    inp.addEventListener('blur',function(){var v=inp.value.replace(/[^0-9.]/g,'');if(v)inp.value='$'+parseInt(v,10).toLocaleString('en-US');});
+    inp.addEventListener('focus',function(){inp.value=inp.value.replace(/[^0-9.]/g,'');});
+  });
 
   // Keyboard 1-3 selects, Backspace goes back
   document.addEventListener('keydown',function(e){
@@ -512,15 +536,19 @@
 
   form.addEventListener('submit',function(e){
     e.preventDefault();
+    var g=function(n){return form[n]?form[n].value:'';};
     var data={recommended_product:form.dataset.result||'',goal:val('goal'),is_rental:val('is_rental'),
-      qualify:val('qualify'),se_detail:val('se_detail'),name:form.name.value,phone:form.phone.value,
-      email:form.email.value,maturity:form.maturity.value,address:form.address.value,source:'HardMoney-Exit-Quiz'};
+      qualify:val('qualify'),se_detail:val('se_detail'),
+      property_type:g('property_type'),property_value:g('property_value'),loan_amount:g('loan_amount'),
+      monthly_rent:g('rent'),credit_score:g('credit'),
+      name:g('name'),phone:g('phone'),email:g('email'),maturity:g('maturity'),address:g('address'),
+      source:'HardMoney-Exit-Quiz'};
     var payload=Object.assign({_subject:'New Hard Money Exit lead: '+(data.name||'(no name)')},data);
     LEAD_EMAILS.forEach(function(addr){
       fetch('https://formsubmit.co/ajax/'+encodeURIComponent(addr),{method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
     });
-    showStep(6);
+    showStep(7);
   });
 
   // Nav shadow

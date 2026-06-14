@@ -97,6 +97,13 @@
   .field label{display:block;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--navy);margin-bottom:5px}
   .field input,.field select{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:16px;font-family:inherit;color:var(--ink);background:#fff;transition:all .18s;min-height:48px;-webkit-appearance:none;appearance:none}
   .field input:focus,.field select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 4px rgba(0,31,96,.08)}
+  .ac{position:relative}
+  .ac-list{position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);z-index:30;overflow:hidden;display:none}
+  .ac-list.open{display:block}
+  .ac-item{padding:11px 14px;font-size:14px;color:var(--ink);cursor:pointer;border-bottom:1px solid var(--soft)}
+  .ac-item:last-child{border-bottom:none}
+  .ac-item:hover{background:var(--soft)}
+  .ac-item small{display:block;color:var(--slate);font-size:12px;margin-top:1px}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .nav-btns{display:flex;gap:10px;margin-top:18px}
   .btn-back,.btn-next{padding:14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;border:1.5px solid var(--line);background:#fff;color:var(--navy);min-height:52px;transition:transform .16s,box-shadow .16s,border-color .16s}
@@ -368,7 +375,7 @@
               <div class="field"><label>Email</label><input type="email" name="email" inputmode="email" placeholder="you@email.com"></div>
             </div>
             <div class="field"><label>When does your hard money loan mature? (optional)</label><input type="text" name="maturity" placeholder="e.g. 90 days, or a date"></div>
-            <div class="field"><label>Property address or Zillow link (optional)</label><input type="text" name="address" placeholder="Paste address or Zillow link"></div>
+            <div class="field"><label>Property address or Zillow link (optional)</label><div class="ac"><input type="text" name="address" id="addr" autocomplete="off" placeholder="Start typing an address, or paste a Zillow link"><div class="ac-list" id="aclist"></div></div></div>
             <div class="nav-btns">
               <button type="button" class="btn-back" id="rback" data-go="5">← Back</button>
               <button type="submit" class="btn-next" data-magnet>Get My Exit Plan →</button>
@@ -550,6 +557,38 @@
     });
     showStep(7);
   });
+
+  // Address autocomplete (Photon / OpenStreetMap, no API key)
+  var addr=document.getElementById('addr'),aclist=document.getElementById('aclist'),acT;
+  function fmtAddr(p){
+    var l1=(p.housenumber&&p.street)?(p.housenumber+' '+p.street):(p.street||p.name||'');
+    var l2=[p.city||p.town||p.village||p.county,p.state,p.postcode].filter(Boolean).join(', ');
+    return {main:l1||l2,sub:l1?l2:'',full:[l1,l2].filter(Boolean).join(', ')};
+  }
+  if(addr){
+    addr.addEventListener('input',function(){
+      var q=addr.value.trim();clearTimeout(acT);
+      if(q.length<3){aclist.classList.remove('open');aclist.innerHTML='';return;}
+      acT=setTimeout(function(){
+        fetch('https://photon.komoot.io/api/?q='+encodeURIComponent(q)+'&limit=6&lang=en')
+          .then(function(r){return r.json();})
+          .then(function(d){
+            var feats=(d.features||[]).filter(function(f){var c=f.properties.countrycode;return !c||c==='US';});
+            aclist.innerHTML='';
+            if(!feats.length){aclist.classList.remove('open');return;}
+            feats.slice(0,6).forEach(function(f){
+              var o=fmtAddr(f.properties);if(!o.full)return;
+              var it=document.createElement('div');it.className='ac-item';
+              it.innerHTML='<span>'+o.main+'</span>'+(o.sub?'<small>'+o.sub+'</small>':'');
+              it.addEventListener('mousedown',function(e){e.preventDefault();addr.value=o.full;aclist.classList.remove('open');aclist.innerHTML='';});
+              aclist.appendChild(it);
+            });
+            aclist.classList.add('open');
+          }).catch(function(){});
+      },260);
+    });
+    addr.addEventListener('blur',function(){setTimeout(function(){aclist.classList.remove('open');},150);});
+  }
 
   // Nav shadow
   var nav=document.getElementById('nav');

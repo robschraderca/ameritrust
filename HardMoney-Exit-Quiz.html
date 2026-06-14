@@ -149,8 +149,10 @@
   .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .pcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;transition:transform .25s ease,box-shadow .25s ease;overflow:hidden;transform-style:preserve-3d;will-change:transform;text-decoration:none;color:inherit;display:block}
   .pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--red));transform:scaleX(0);transform-origin:left;transition:transform .35s}
-  .pcard:hover{box-shadow:var(--shadow)}
-  .pcard:hover::before{transform:scaleX(1)}
+  @media(hover:hover){
+    .pcard:hover{box-shadow:var(--shadow)}
+    .pcard:hover::before{transform:scaleX(1)}
+  }
   .picon{display:none}
   .ptag{display:block;font-size:25px;font-weight:800;letter-spacing:-.01em;color:var(--red);line-height:1.1}
   .pcard h3{font-size:15px;font-weight:600;color:var(--navy);margin:5px 0 10px;letter-spacing:0}

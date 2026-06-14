@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Loan Fits Your Hard Money Exit? | Ameritrust Mortgage</title>
+<style>
+  :root {
+    --red: #BE0B31;
+    --navy: #001F60;
+    --silver: #AEB1BD;
+    --light-gray: #EBECEF;
+    --off-white: #F9F9F9;
+    --white: #FFFFFF;
+    --black: #000000;
+    --accent-steel: #758C9C;
+    --accent-green: #8DAE9B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--navy); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  .nav { background: var(--white); padding: 10px 0; border-bottom: 3px solid var(--red); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,31,96,0.06); }
+  .nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+  .nav-logo img { height: 36px; width: auto; }
+  .nav-nmls { font-size: 10px; color: var(--silver); }
+  .nav-phone { color: var(--navy); text-decoration: none; font-size: 14px; font-weight: 700; }
+  .nav-phone:hover { color: var(--red); }
+
+  .hero { background: var(--navy); padding: 56px 24px 64px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(190,11,49,0.15) 0%, transparent 70%); border-radius: 50%; }
+  .hero-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; position: relative; z-index: 1; }
+  .hero-left { display: flex; flex-direction: column; }
+  .hero-badge { display: inline-block; background: var(--red); color: var(--white); padding: 7px 18px; border-radius: 50px; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(190,11,49,0.35); }
+  .hero h1 { font-size: 38px; font-weight: 900; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
+  .hero h1 em { font-style: normal; color: var(--red); }
+  .hero p { font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 24px; max-width: 480px; }
+  .hero-bullets { list-style: none; margin-bottom: 0; }
+  .hero-bullets li { color: var(--white); font-size: 17px; font-weight: 700; padding: 8px 0; display: flex; align-items: center; gap: 12px; }
+  .hero-bullets li::before { content: '\2713'; display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; background: rgba(190,11,49,0.25); color: var(--red); border-radius: 50%; font-weight: 800; font-size: 11px; flex-shrink: 0; }
+
+  .hero-steps { background: var(--white); border-radius: 14px; padding: 32px 28px; margin-top: 28px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); flex: 1; align-content: center; }
+  .hero-step { text-align: center; }
+  .hero-step-num { width: 54px; height: 54px; background: var(--navy); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 22px; margin: 0 auto 10px; border: 3px solid var(--black); }
+  .hero-step-title { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+  .hero-step-desc { font-size: 13px; color: var(--accent-steel); margin-top: 4px; line-height: 1.4; }
+
+  .hero-form { background: var(--white); border-radius: 14px; padding: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+  .hero-form h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .hero-form .form-sub { font-size: 13px; color: var(--accent-steel); margin-bottom: 20px; line-height: 1.5; }
+  .form-group { margin-bottom: 12px; }
+  .form-group label { display: block; font-size: 11px; font-weight: 700; color: var(--navy); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .form-group input, .form-group select { width: 100%; padding: 12px 14px; border: 2px solid var(--light-gray); border-radius: 8px; font-size: 16px; font-family: inherit; color: var(--navy); transition: border-color 0.2s; background: var(--white); -webkit-appearance: none; min-height: 46px; }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--navy); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .form-trust { font-size: 11px; color: var(--silver); text-align: center; margin-top: 10px; }
+
+  .wiz-progress { display: flex; gap: 6px; margin-bottom: 6px; }
+  .wiz-dot { flex: 1; height: 4px; background: var(--light-gray); border-radius: 2px; transition: background 0.3s; }
+  .wiz-dot.active { background: var(--red); }
+  .wiz-dot.done { background: var(--navy); }
+  .wiz-step-label { font-size: 11px; color: var(--accent-steel); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+  .wiz-step-label span { color: var(--navy); }
+  .wiz-panel { display: none; }
+  .wiz-panel.active { display: block; animation: fadeIn 0.25s ease-out; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .wiz-q { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 16px; line-height: 1.3; }
+  .wiz-options { display: grid; gap: 10px; margin-bottom: 8px; }
+  .wiz-option { display: block; cursor: pointer; padding: 14px 16px; border: 2px solid var(--light-gray); border-radius: 10px; font-size: 15px; font-weight: 600; color: var(--navy); background: var(--white); transition: all 0.15s; text-align: left; user-select: none; }
+  .wiz-option:hover { border-color: var(--accent-steel); }
+  .wiz-option input { position: absolute; opacity: 0; pointer-events: none; }
+  .wiz-option.selected { border-color: var(--red); background: rgba(190,11,49,0.06); color: var(--red); }
+  .wiz-option small { display: block; font-weight: 500; font-size: 12px; color: var(--accent-steel); margin-top: 2px; }
+  .wiz-option.selected small { color: var(--red); }
+  .wiz-nav { display: flex; gap: 10px; margin-top: 18px; }
+  .wiz-back, .wiz-next { flex: 1; padding: 14px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; border: 2px solid var(--light-gray); background: var(--white); color: var(--navy); min-height: 52px; transition: all 0.15s; }
+  .wiz-back:hover { border-color: var(--navy); }
+  .wiz-next { background: var(--red); color: var(--white); border-color: var(--red); flex: 2; }
+  .wiz-next:hover { background: var(--navy); border-color: var(--navy); }
+  .wiz-hint { font-size: 12px; color: var(--accent-steel); margin-top: 6px; }
+
+  /* RESULT */
+  .result-badge { display: inline-block; background: var(--accent-green); color: var(--white); padding: 6px 14px; border-radius: 50px; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .result-why { font-size: 14px; color: var(--accent-steel); line-height: 1.6; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--light-gray); }
+  .result-why strong { color: var(--navy); }
+  .thanks { text-align: center; padding: 12px 0; }
+  .thanks h3 { font-size: 22px; color: var(--navy); margin-bottom: 8px; }
+  .thanks p { font-size: 15px; color: var(--accent-steel); margin-bottom: 18px; }
+  .thanks-call { display: inline-block; background: var(--red); color: var(--white); padding: 14px 26px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 16px; }
+
+  .lo-strip { display: flex; align-items: center; gap: 12px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--light-gray); }
+  .lo-strip img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .lo-strip-info { flex: 1; min-width: 0; }
+  .lo-strip-name { font-size: 13px; font-weight: 700; color: var(--navy); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lo-strip-title { font-size: 11px; color: var(--accent-steel); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lo-strip-logo { flex: 0 0 auto; }
+  .lo-strip-logo img { width: auto; height: 26px; max-width: 130px; object-fit: contain; border-radius: 0; display: block; }
+
+  section { padding: 72px 24px; }
+  .container { max-width: 1140px; margin: 0 auto; }
+  .section-label { font-size: 12px; font-weight: 700; color: var(--red); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  .section-title { font-size: 36px; font-weight: 900; color: var(--navy); margin-bottom: 12px; line-height: 1.2; }
+  .section-subtitle { font-size: 18px; color: var(--accent-steel); max-width: 620px; line-height: 1.7; }
+
+  .why-us { background: var(--navy); color: var(--white); padding: 84px 24px; }
+  .why-us-inner { max-width: 820px; margin: 0 auto; text-align: center; }
+  .why-us .section-label { color: rgba(255,255,255,0.72); }
+  .why-us-title { font-size: 34px; font-weight: 800; color: var(--white); line-height: 1.25; margin: 10px 0 20px; letter-spacing: -0.5px; }
+  .why-us-body { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.88); max-width: 720px; margin: 0 auto 32px; }
+  .why-us-cta { display: inline-block; background: var(--red); color: var(--white); padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 16px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 8px 20px rgba(190,11,49,0.35); }
+  .why-us-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(190,11,49,0.45); }
+
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+  .benefit { padding: 28px; border-radius: 14px; border: 1px solid var(--light-gray); background: var(--white); transition: all 0.3s; border-left: 4px solid var(--red); }
+  .benefit:hover { box-shadow: 0 8px 24px rgba(0,31,96,0.05); }
+  .benefit h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+  .benefit .benefit-tag { font-size: 11px; font-weight: 800; color: var(--red); letter-spacing: 1px; text-transform: uppercase; }
+  .benefit p { font-size: 15px; color: var(--accent-steel); line-height: 1.7; margin-top: 6px; }
+
+  .lo-section { background: var(--off-white); }
+  .lo-card { background: var(--white); border: 1px solid var(--light-gray); border-radius: 14px; padding: 24px 28px; border-top: 3px solid var(--red); display: flex; gap: 20px; align-items: flex-start; max-width: 680px; margin: 0 auto; }
+  .lo-photo { width: 100px; height: 100px; flex-shrink: 0; overflow: hidden; }
+  .lo-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .lo-info { flex: 1; }
+  .lo-info h4 { font-size: 20px; font-weight: 700; margin-bottom: 2px; color: var(--black); }
+  .lo-info .lo-title { font-size: 13px; color: var(--navy); font-weight: 700; margin-bottom: 12px; }
+  .lo-info .lo-address { font-size: 12px; color: var(--accent-steel); line-height: 1.5; margin-bottom: 12px; }
+  .lo-info a { color: var(--black); text-decoration: none; font-size: 14px; display: block; margin-bottom: 4px; }
+  .lo-info a:hover { color: var(--red); }
+  .lo-card-right { text-align: center; flex-shrink: 0; }
+  .lo-card-right img { width: 120px; height: auto; display: block; margin: 0 auto 4px; }
+  .lo-card-right .lo-nmls { font-size: 10px; color: var(--silver); letter-spacing: 0.5px; }
+
+  .legal-disclaimer { font-size: 11px; line-height: 1.7; color: var(--silver); max-width: 760px; margin: 32px auto 0; text-align: center; padding-top: 24px; border-top: 1px solid var(--light-gray); }
+
+  @media (max-width: 1024px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+    .hero { padding: 48px 20px 56px; }
+    .hero h1 { font-size: 32px; }
+    .hero-steps { margin-top: 20px; padding: 24px 20px; }
+    .lo-card { flex-direction: column; align-items: center; text-align: center; padding: 28px 20px; }
+    .lo-info a { display: inline-block; margin: 4px 8px; }
+    section { padding: 56px 20px; }
+    .section-title { font-size: 28px; }
+  }
+  @media (max-width: 600px) {
+    .nav-inner { padding: 0 16px; gap: 10px; }
+    .nav-logo img { height: 30px; }
+    .nav-nmls { display: none; }
+    .nav-phone { font-size: 13px; padding: 8px 12px; background: var(--red); color: var(--white); border-radius: 6px; white-space: nowrap; }
+    .hero { padding: 32px 16px 40px; }
+    .hero h1 { font-size: 26px; line-height: 1.2; }
+    .hero p { font-size: 15px; }
+    .hero-bullets li { font-size: 14px; }
+    .hero-steps { padding: 20px 16px; gap: 14px; }
+    .hero-step-num { width: 40px; height: 40px; font-size: 16px; }
+    .hero-form { padding: 24px 20px; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .benefits-grid { grid-template-columns: 1fr; gap: 14px; }
+    section { padding: 44px 16px; }
+    .section-title { font-size: 24px; }
+  }
+  @media (max-width: 380px) { .hero h1 { font-size: 23px; } .hero-steps { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="logo-horizontal.png" alt="Ameritrust Mortgage Corporation">
+      <span class="nav-nmls">NMLS 217229</span>
+    </a>
+    <a href="tel:7146243598" class="nav-phone">&#9742; 714-624-3598</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div>
+        <div class="hero-badge">Hard Money Exit</div>
+        <h1>Get Out of Your Hard Money Loan <em>Before the Balloon Hits</em></h1>
+        <p>Answer a few quick questions and see which permanent loan gets you out &mdash; DSCR, bank statement, or P&amp;L. No tax returns required.</p>
+        <ul class="hero-bullets">
+          <li>Refinance out of hard money or bridge debt</li>
+          <li>Qualify on the property or your business income</li>
+          <li>DSCR, bank statement, or P&amp;L options</li>
+          <li>Most close in about 3 weeks</li>
+        </ul>
+      </div>
+      <div class="hero-steps">
+        <div class="hero-step"><div class="hero-step-num">1</div><div class="hero-step-title">Answer 4 Questions</div><div class="hero-step-desc">About 60 seconds</div></div>
+        <div class="hero-step"><div class="hero-step-num">2</div><div class="hero-step-title">See Your Best Exit</div><div class="hero-step-desc">DSCR, bank stmt, or P&amp;L</div></div>
+        <div class="hero-step"><div class="hero-step-num">3</div><div class="hero-step-title">Michael Maps It</div><div class="hero-step-desc">A real plan, no credit pull</div></div>
+        <div class="hero-step"><div class="hero-step-num">4</div><div class="hero-step-title">Close &amp; Move On</div><div class="hero-step-desc">Out before the balloon</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="hero-form">
+        <h3>Which loan fits your exit?</h3>
+        <p class="form-sub">60 seconds, no credit pull. See your best way out of a hard money loan.</p>
+
+        <div class="wiz-progress">
+          <div class="wiz-dot active" data-dot="1"></div>
+          <div class="wiz-dot" data-dot="2"></div>
+          <div class="wiz-dot" data-dot="3"></div>
+          <div class="wiz-dot" data-dot="4"></div>
+        </div>
+        <div class="wiz-step-label">Step <span id="wiz-current">1</span> of 4</div>
+
+        <form id="exit-wizard" onsubmit="return false;">
+          <!-- STEP 1: Goal -->
+          <div class="wiz-panel active" data-step="1" data-prog="1">
+            <div class="wiz-q">What are you trying to do?</div>
+            <div class="wiz-options">
+              <label class="wiz-option" data-next="2"><input type="radio" name="goal" value="Refinance out of a hard money / bridge loan"><span>Refinance out of a hard money / bridge loan</span></label>
+              <label class="wiz-option" data-next="2"><input type="radio" name="goal" value="Buy a new investment property"><span>Buy a new investment property</span></label>
+              <label class="wiz-option" data-next="2"><input type="radio" name="goal" value="Cash out / pull equity"><span>Cash out / pull equity</span></label>
+            </div>
+          </div>
+
+          <!-- STEP 2: Property -->
+          <div class="wiz-panel" data-step="2" data-prog="2">
+            <div class="wiz-q">Is this an investment / rental property?</div>
+            <div class="wiz-options">
+              <label class="wiz-option" data-next="3"><input type="radio" name="is_rental" value="Yes - rental/investment"><span>Yes &mdash; it&rsquo;s a rental / investment</span></label>
+              <label class="wiz-option" data-next="3"><input type="radio" name="is_rental" value="No - primary/second home"><span>No &mdash; primary or second home</span></label>
+            </div>
+            <div class="wiz-nav"><button type="button" class="wiz-back" data-go="1">&larr; Back</button></div>
+          </div>
+
+          <!-- STEP 3: How to qualify -->
+          <div class="wiz-panel" data-step="3" data-prog="3">
+            <div class="wiz-q">How do you want to qualify?</div>
+            <div class="wiz-options">
+              <label class="wiz-option" data-next="5"><input type="radio" name="qualify" value="rent"><span>On the property&rsquo;s rental income<small>No personal income docs</small></span></label>
+              <label class="wiz-option" data-next="4"><input type="radio" name="qualify" value="self"><span>On my income &mdash; I&rsquo;m self-employed<small>Business owner, 1099, contractor</small></span></label>
+              <label class="wiz-option" data-next="5"><input type="radio" name="qualify" value="w2"><span>On my income &mdash; I&rsquo;m a W-2 employee<small>Salary or hourly</small></span></label>
+            </div>
+            <div class="wiz-nav"><button type="button" class="wiz-back" data-go="2">&larr; Back</button></div>
+          </div>
+
+          <!-- STEP 4: Self-employed detail -->
+          <div class="wiz-panel" data-step="4" data-prog="3">
+            <div class="wiz-q">Which sounds most like you?</div>
+            <div class="wiz-options">
+              <label class="wiz-option" data-next="5"><input type="radio" name="se_detail" value="deposits"><span>Strong bank deposits, but I write a lot off<small>&rarr; bank statement loan</small></span></label>
+              <label class="wiz-option" data-next="5"><input type="radio" name="se_detail" value="pnl"><span>I have a clean CPA-prepared P&amp;L<small>&rarr; P&amp;L-only loan</small></span></label>
+              <label class="wiz-option" data-next="5"><input type="radio" name="se_detail" value="notsure"><span>Not sure yet<small>We&rsquo;ll help you pick</small></span></label>
+            </div>
+            <div class="wiz-nav"><button type="button" class="wiz-back" data-go="3">&larr; Back</button></div>
+          </div>
+
+          <!-- STEP 5: Result + contact -->
+          <div class="wiz-panel" data-step="5" data-prog="4">
+            <div class="result-badge" id="result-product">Your match</div>
+            <div class="wiz-q" id="result-headline" style="margin-bottom:8px;">Your likely best exit</div>
+            <p class="result-why" id="result-why"></p>
+            <div class="wiz-q" style="font-size:16px;">Where should Michael send your exit plan?</div>
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="First and last name">
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Phone</label><input type="tel" name="phone" inputmode="tel" placeholder="(555) 123-4567"></div>
+              <div class="form-group"><label>Email</label><input type="email" name="email" inputmode="email" placeholder="you@email.com"></div>
+            </div>
+            <div class="form-group">
+              <label>When does your hard money loan mature? (optional)</label>
+              <input type="text" name="maturity" placeholder="e.g. 90 days, or a date">
+            </div>
+            <div class="form-group">
+              <label>Property address or Zillow link (optional)</label>
+              <input type="text" name="address" placeholder="Paste address or Zillow link">
+            </div>
+            <div class="wiz-nav">
+              <button type="button" class="wiz-back" id="result-back">&larr; Back</button>
+              <button type="submit" class="wiz-next">Get My Exit Plan &rarr;</button>
+            </div>
+            <div class="form-trust" style="margin-top:12px;">No credit pull &bull; Same-day response &bull; Free analysis</div>
+          </div>
+
+          <!-- STEP 6: Thank you -->
+          <div class="wiz-panel" data-step="6" data-prog="4">
+            <div class="thanks">
+              <h3>Got it &mdash; thanks!</h3>
+              <p>Michael will reach out shortly with your <strong id="thanks-product">exit</strong> plan. Need to talk sooner?</p>
+              <a href="tel:7146243598" class="thanks-call">&#9742; Call Michael &mdash; 714-624-3598</a>
+            </div>
+          </div>
+        </form>
+
+        <div class="lo-strip">
+          <img src="michael-headshot.jpg" alt="Michael McDermott">
+          <div class="lo-strip-info">
+            <div class="lo-strip-name">Michael McDermott</div>
+            <div class="lo-strip-title">Loan Officer &bull; NMLS 1036304</div>
+          </div>
+          <div class="lo-strip-logo"><img src="logo-horizontal.png" alt="Ameritrust"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="container">
+    <div class="section-label">Three Ways Out</div>
+    <div class="section-title">One of these gets you out of hard money</div>
+    <div class="section-subtitle">The right exit depends on the property and how you earn. Here&rsquo;s the short version.</div>
+    <div class="benefits-grid">
+      <div class="benefit"><span class="benefit-tag">DSCR</span><h3>Qualify on the rent</h3><p>The property&rsquo;s rental income carries the loan &mdash; no tax returns, no DTI. The usual exit for a rental.</p></div>
+      <div class="benefit"><span class="benefit-tag">Bank Statement</span><h3>Qualify on deposits</h3><p>12 to 24 months of bank deposits stand in for tax returns. Built for self-employed owners with write-offs.</p></div>
+      <div class="benefit"><span class="benefit-tag">P&amp;L Only</span><h3>Qualify on your P&amp;L</h3><p>A CPA-prepared profit &amp; loss does the work. The lightest paperwork of the three.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="why-us" id="why-work-with-us">
+  <div class="why-us-inner">
+    <div class="section-label">Why Work With Us</div>
+    <h2 class="why-us-title">Getting out of hard money is about timing, not luck.</h2>
+    <p class="why-us-body">We line up your permanent loan before the balloon hits, so you cash out, recycle your capital, and skip the extension fees. One conversation tells you exactly which exit fits.</p>
+    <a href="tel:7146243598" class="why-us-cta">&#9742; Call Michael Now &mdash; 714-624-3598</a>
+  </div>
+</section>
+
+<section class="lo-section">
+  <div class="container">
+    <div class="lo-card">
+      <div class="lo-photo"><img src="michael-headshot.jpg" alt="Michael McDermott"></div>
+      <div class="lo-info">
+        <h4>Michael McDermott</h4>
+        <div class="lo-title">Loan Officer &bull; NMLS 1036304</div>
+        <div class="lo-address">17341 Irvine Blvd., Suite 150<br>Tustin, CA 92780</div>
+        <a href="tel:7146243598">&#9742; 714-624-3598</a>
+        <a href="mailto:MichaelM@ameritrust-mortgage.com">&#9993; MichaelM@ameritrust-mortgage.com</a>
+      </div>
+      <div class="lo-card-right">
+        <img src="logo-main.png" alt="Ameritrust Mortgage Corporation">
+        <div class="lo-nmls">NMLS 217229</div>
+      </div>
+    </div>
+    <p class="legal-disclaimer">Equal Housing Lender. Ameritrust Mortgage Corporation NMLS 217229. This is not a commitment to lend. Programs, rates, terms, and conditions are subject to change without notice. All loans are subject to credit approval. Other restrictions and limitations may apply. Michael McDermott NMLS 1036304.</p>
+  </div>
+</section>
+
+<script>
+(function() {
+  // ===== LEAD CAPTURE ENDPOINT =====
+  // Leave "" and the quiz still works (shows result + call CTA), but answers are NOT stored.
+  // To capture leads, set this to a Formspree URL (https://formspree.io/f/xxxx)
+  // or your n8n / CRM webhook that accepts a JSON POST.
+  var FORM_ENDPOINT = "";
+
+  var form = document.getElementById('exit-wizard');
+  if (!form) return;
+  var panels = form.querySelectorAll('.wiz-panel');
+  var dots = document.querySelectorAll('.wiz-dot');
+  var currentLabel = document.getElementById('wiz-current');
+
+  var PRODUCTS = {
+    dscr:  { name: 'DSCR Loan',        why: 'You can qualify on the <strong>property&rsquo;s rental income</strong> &mdash; no tax returns, no DTI. It&rsquo;s the most common way investors refinance out of hard money on a rental.' },
+    bank:  { name: 'Bank Statement',   why: 'As a self-employed borrower, you can qualify on <strong>12&ndash;24 months of bank deposits</strong> instead of tax returns &mdash; ideal when write-offs shrink your taxable income.' },
+    pnl:   { name: 'P&L-Only Loan',    why: 'With a <strong>CPA-prepared profit &amp; loss</strong>, you qualify on your business&rsquo;s bottom line and skip the bank-statement pull. The lightest paperwork of the three.' },
+    mixed: { name: 'A Couple of Options', why: 'Based on your answers, more than one path could fit. Michael will quickly pin down whether <strong>DSCR, bank statement, or P&amp;L</strong> gets you the best exit.' }
+  };
+
+  function val(n) { var el = form.querySelector('input[name="'+n+'"]:checked'); return el ? el.value : ''; }
+
+  function computeResult() {
+    var q = val('qualify');
+    var rental = val('is_rental');
+    var se = val('se_detail');
+    var key = 'mixed';
+    if (q === 'rent') key = 'dscr';
+    else if (q === 'self') {
+      if (se === 'deposits') key = 'bank';
+      else if (se === 'pnl') key = 'pnl';
+      else key = 'mixed';
+    } else if (q === 'w2') {
+      key = (rental === 'Yes - rental/investment') ? 'dscr' : 'mixed';
+    }
+    var p = PRODUCTS[key];
+    document.getElementById('result-product').textContent = p.name;
+    document.getElementById('result-headline').innerHTML = 'Your likely best exit: ' + p.name;
+    document.getElementById('result-why').innerHTML = p.why;
+    document.getElementById('thanks-product').textContent = p.name;
+    form.dataset.result = p.name;
+    // back button from result returns to the right prior step
+    document.getElementById('result-back').setAttribute('data-go', q === 'self' ? '4' : '3');
+  }
+
+  function showStep(n) {
+    panels.forEach(function(p) { p.classList.toggle('active', parseInt(p.dataset.step) === n); });
+    var panel = form.querySelector('.wiz-panel[data-step="'+n+'"]');
+    var prog = panel ? parseInt(panel.dataset.prog) : n;
+    dots.forEach(function(d) {
+      var i = parseInt(d.dataset.dot);
+      d.classList.remove('active', 'done');
+      if (i < prog) d.classList.add('done');
+      else if (i === prog) d.classList.add('active');
+    });
+    currentLabel.textContent = prog;
+    if (window.innerWidth < 900) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Option clicks (auto-advance, branching via data-next)
+  form.querySelectorAll('.wiz-option').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      var group = opt.closest('.wiz-options');
+      group.querySelectorAll('.wiz-option').forEach(function(o) { o.classList.remove('selected'); });
+      opt.classList.add('selected');
+      var input = opt.querySelector('input'); if (input) input.checked = true;
+      var next = parseInt(opt.dataset.next);
+      setTimeout(function() { if (next === 5) computeResult(); showStep(next); }, 200);
+    });
+  });
+
+  // Back buttons
+  form.querySelectorAll('.wiz-back').forEach(function(btn) {
+    btn.addEventListener('click', function() { showStep(parseInt(btn.dataset.go)); });
+  });
+
+  // Submit
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = {
+      recommended_product: form.dataset.result || '',
+      goal: val('goal'), is_rental: val('is_rental'), qualify: val('qualify'), se_detail: val('se_detail'),
+      name: form.name.value, phone: form.phone.value, email: form.email.value,
+      maturity: form.maturity.value, address: form.address.value,
+      source: 'HardMoney-Exit-Quiz'
+    };
+    if (FORM_ENDPOINT) {
+      fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) }).catch(function(){});
+    }
+    showStep(6);
+  });
+})();
+</script>
+</body>
+</html>

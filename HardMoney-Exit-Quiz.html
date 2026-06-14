@@ -136,7 +136,7 @@
   .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;position:relative}
   .timeline::before{content:'';position:absolute;top:27px;left:14%;right:14%;height:2px;background:linear-gradient(90deg,var(--navy),var(--red));opacity:.22;z-index:0}
   .tstep{position:relative;z-index:1;text-align:center;padding:0 8px}
-  .tnode{width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--navy);box-shadow:var(--shadow-sm);transition:all .3s}
+  .tnode{width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--navy);font-size:22px;font-weight:800;box-shadow:var(--shadow-sm);transition:all .3s}
   .tstep:hover .tnode{border-color:var(--red);color:var(--red);transform:translateY(-4px) scale(1.06)}
   .tstep h3{font-size:17px;font-weight:700;margin-bottom:6px}
   .tstep p{font-size:14px;color:var(--slate);max-width:260px;margin:0 auto}
@@ -383,9 +383,9 @@
     <h2 class="reveal">From hard money to permanent in three moves</h2>
     <p class="lead reveal">No guesswork and no credit pull, just a clear path out before your note comes due.</p>
     <div class="timeline">
-      <div class="tstep reveal"><div class="tnode"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>1. Answer a few questions</h3><p>About 60 seconds. Tell us the property and how you earn.</p></div>
-      <div class="tstep reveal"><div class="tnode"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3>2. See your best loan</h3><p>Instantly find out whether DSCR, bank statement, or P&amp;L fits.</p></div>
-      <div class="tstep reveal"><div class="tnode"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3>3. Michael maps your exit</h3><p>A real plan to refinance out before the balloon hits.</p></div>
+      <div class="tstep reveal"><div class="tnode">1</div><h3>Answer a few questions</h3><p>About 60 seconds. Tell us the property and how you earn.</p></div>
+      <div class="tstep reveal"><div class="tnode">2</div><h3>See your best loan</h3><p>Instantly find out whether DSCR, bank statement, or P&amp;L fits.</p></div>
+      <div class="tstep reveal"><div class="tnode">3</div><h3>Michael maps your exit</h3><p>A real plan to refinance out before the balloon hits.</p></div>
     </div>
   </div>
 </section>

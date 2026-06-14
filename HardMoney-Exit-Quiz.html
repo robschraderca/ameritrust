@@ -104,6 +104,9 @@
   .ac-item:last-child{border-bottom:none}
   .ac-item:hover{background:var(--soft)}
   .ac-item small{display:block;color:var(--slate);font-size:12px;margin-top:1px}
+  .field input.err,.field select.err{border-color:var(--red);box-shadow:0 0 0 3px rgba(190,11,49,.12)}
+  .err-msg{display:none;color:var(--red);font-size:12.5px;font-weight:600;margin-top:10px;text-align:center}
+  .err-msg.show{display:block}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .nav-btns{display:flex;gap:10px;margin-top:18px}
   .btn-back,.btn-next{padding:14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;border:1.5px solid var(--line);background:#fff;color:var(--navy);min-height:52px;transition:transform .16s,box-shadow .16s,border-color .16s}
@@ -359,8 +362,9 @@
             <div class="wiz-hint" style="font-size:12px;color:var(--slate);margin-top:6px">A best guess is fine. Michael confirms the real numbers on the call.</div>
             <div class="nav-btns">
               <button type="button" class="btn-back" id="pback" data-go="3">&larr; Back</button>
-              <button type="button" class="btn-next" data-go="6">Continue &rarr;</button>
+              <button type="button" class="btn-next" id="pcont">Continue &rarr;</button>
             </div>
+            <div class="err-msg" id="err5">Please complete all fields to continue.</div>
           </div>
 
           <!-- 6 RESULT -->
@@ -380,6 +384,7 @@
               <button type="button" class="btn-back" id="rback" data-go="5">← Back</button>
               <button type="submit" class="btn-next" data-magnet>Get My Exit Plan →</button>
             </div>
+            <div class="err-msg" id="err6">Please add your name, phone, and email.</div>
             <div class="trust-line">No credit pull • Same-day response • Free analysis</div>
           </div>
 
@@ -526,6 +531,23 @@
 
   form.querySelectorAll('.opt').forEach(function(opt){opt.addEventListener('click',function(){pick(opt);});});
   form.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){showStep(+b.dataset.go);});});
+
+  // Required-field validation
+  function fieldErr(name){
+    var el=form[name];if(!el)return false;
+    var v=(el.value||'').trim();var ok=v!=='';
+    if(name==='email')ok=ok&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    el.classList.toggle('err',!ok);return ok;
+  }
+  function validate(names){var ok=true,first=null;names.forEach(function(n){if(!fieldErr(n)){ok=false;if(!first)first=form[n];}});if(first&&first.focus)first.focus();return ok;}
+  form.querySelectorAll('.field input,.field select').forEach(function(el){
+    var clr=function(){el.classList.remove('err');};el.addEventListener('input',clr);el.addEventListener('change',clr);
+  });
+  var pcont=document.getElementById('pcont');
+  if(pcont)pcont.addEventListener('click',function(){
+    if(validate(['property_type','property_value','loan_amount','rent','credit'])){document.getElementById('err5').classList.remove('show');showStep(6);}
+    else document.getElementById('err5').classList.add('show');
+  });
   // Dollar formatting
   form.querySelectorAll('[data-money]').forEach(function(inp){
     inp.addEventListener('blur',function(){var v=inp.value.replace(/[^0-9.]/g,'');if(v)inp.value='$'+parseInt(v,10).toLocaleString('en-US');});
@@ -543,6 +565,8 @@
 
   form.addEventListener('submit',function(e){
     e.preventDefault();
+    if(!validate(['name','phone','email'])){document.getElementById('err6').classList.add('show');return;}
+    document.getElementById('err6').classList.remove('show');
     var g=function(n){return form[n]?form[n].value:'';};
     var data={recommended_product:form.dataset.result||'',goal:val('goal'),is_rental:val('is_rental'),
       qualify:val('qualify'),se_detail:val('se_detail'),

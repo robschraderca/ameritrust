@@ -574,8 +574,17 @@
       monthly_rent:g('rent'),credit_score:g('credit'),
       name:g('name'),phone:g('phone'),email:g('email'),maturity:g('maturity'),address:g('address'),
       source:'HardMoney-Exit-Quiz'};
-    var payload=Object.assign({_subject:'New Hard Money Exit lead: '+(data.name||'(no name)')},data);
-    LEAD_EMAILS.forEach(function(addr){
+    var firstName=(data.name||'there').trim().split(' ')[0];
+    var autoMsg='Hi '+firstName+',\n\n'
+      +'Thanks for running the numbers on your hard money exit. I have your details and I am reviewing them now, and I will follow up personally within the next couple of hours.\n\n'
+      +'Based on what you shared, a '+(data.recommended_product||'non-QM loan')+' looks like a strong fit. Want to skip the phone tag? Reply to this email with a good time, or call me directly at 714-624-3598.\n\n'
+      +'Talk soon,\n'
+      +'Michael McDermott\n'
+      +'Loan Officer, NMLS 1036304\n'
+      +'Ameritrust Mortgage Corporation, NMLS 217229';
+    LEAD_EMAILS.forEach(function(addr,i){
+      var payload=Object.assign({_subject:'New Hard Money Exit lead: '+(data.name||'(no name)')},data);
+      if(i===0)payload._autoresponse=autoMsg;
       fetch('https://formsubmit.co/ajax/'+encodeURIComponent(addr),{method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
     });

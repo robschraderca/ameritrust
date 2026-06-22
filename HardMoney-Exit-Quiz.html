@@ -49,6 +49,9 @@
   .hero h1{font-size:clamp(30px,4.5vw,52px);font-weight:800;line-height:1.05;letter-spacing:-.025em;color:#fff;margin-bottom:18px}
   .hero h1 em{font-style:normal;background:linear-gradient(100deg,#ff5d7d,#BE0B31,#ff5d7d);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite}
   @keyframes shine{to{background-position:200% center}}
+  .scrolldown{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:3px;color:rgba(255,255,255,.85);text-decoration:none;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;animation:bob 1.8s ease-in-out infinite}
+  .scrolldown:hover{color:#fff}
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
   .hero-sub{font-size:18px;color:rgba(255,255,255,.82);max-width:480px;margin-bottom:26px}
   .hero-list{list-style:none;display:grid;gap:12px;margin-bottom:26px}
   .hero-list li{display:flex;align-items:center;gap:12px;color:#fff;font-size:15.5px;font-weight:500}
@@ -257,7 +260,7 @@
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6b85" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>DSCR, Bank Statement, or P&amp;L options</li>
       </ul>
       <div class="hero-trust">
-        <span class="chip">🔒 No credit pull</span>
+        <span class="chip">🔒 No obligation</span>
         <span class="chip">⏱ Close in about 3 weeks</span>
         <span class="chip">✓ No tax returns</span>
       </div>
@@ -385,7 +388,7 @@
               <button type="submit" class="btn-next" data-magnet>Get My Exit Plan →</button>
             </div>
             <div class="err-msg" id="err6">Please add your name, phone, and email.</div>
-            <div class="trust-line">No credit pull • Same-day response • Free analysis</div>
+            <div class="trust-line">No tax returns • Same-day response • Free analysis</div>
           </div>
 
           <!-- 7 THANKS -->
@@ -412,13 +415,14 @@
       </div>
     </div>
   </div>
+  <a class="scrolldown" href="#how" aria-label="See how it works"><span>How it works</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
 </section>
 
-<section class="how">
+<section class="how" id="how">
   <div class="container center">
     <div class="eyebrow reveal">How it works</div>
     <h2 class="reveal">From hard money to permanent in three moves</h2>
-    <p class="lead reveal">No guesswork and no credit pull, just a clear path out before your note comes due.</p>
+    <p class="lead reveal">No guesswork and no pressure, just a clear path out before your note comes due.</p>
     <div class="timeline">
       <div class="tstep reveal"><div class="tnode">1</div><div class="tstep-text"><h3>Answer a few questions</h3><p>About 60 seconds. Tell us the property and how you earn.</p></div></div>
       <div class="tstep reveal"><div class="tnode">2</div><div class="tstep-text"><h3>See your best loan</h3><p>Instantly find out whether DSCR, Bank Statement, or P&amp;L fits.</p></div></div>
@@ -485,7 +489,7 @@
   var cur = document.getElementById('cur');
 
   var PRODUCTS = {
-    dscr:  {name:'DSCR Loan',           why:'You can qualify on the <strong>property&rsquo;s rental income</strong>, with no tax returns and no DTI. It&rsquo;s the most common way investors refinance out of hard money on a rental.'},
+    dscr:  {name:'DSCR Loan',           why:'You can qualify on the <strong>property&rsquo;s rental income</strong>, with no tax returns and no DTI. It&rsquo;s the most common way clients refinance out of hard money on a rental.'},
     bank:  {name:'Bank Statement Loan', why:'As a self-employed borrower, you can qualify on <strong>12 to 24 months of bank deposits</strong> instead of tax returns. Ideal when write-offs shrink your taxable income.'},
     pnl:   {name:'P&L-Only Loan',       why:'With a <strong>CPA-prepared profit &amp; loss</strong>, you qualify on your business&rsquo;s bottom line and skip the bank-statement pull. The lightest paperwork of the three.'},
     mixed: {name:'A Couple of Options', why:'Based on your answers, more than one path could fit. Michael will quickly pin down whether <strong>DSCR, bank statement, or P&amp;L</strong> gets you the best exit.'}
